@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Dhani",
       theme: ThemeData(primarySwatch: Colors.red),
-      home: StateManager(),
+      home: const StateManager(),
     );
   }
 }
@@ -161,18 +161,18 @@ class UpdatedBox extends StatelessWidget {
       required this.onTapDown,
       required this.onTapUp});
 
-  final isOn;
-  final onTap;
-  final onTapDown;
-  final onTapUp;
-  final onTapCancel;
-  final onDoubleTap;
-  final onDoubleTapDown;
-  final onDoubleTapCancel;
-  final onLongTap;
-  final onLongTapDown;
-  final onLongTapUp;
-  final onLongTapCancel;
+  final bool isOn;
+  final Function onTap;
+  final Function onTapDown;
+  final Function onTapUp;
+  final Function onTapCancel;
+  final Function onDoubleTap;
+  final Function onDoubleTapDown;
+  final Function onDoubleTapCancel;
+  final Function onLongTap;
+  final Function onLongTapDown;
+  final Function onLongTapUp;
+  final Function onLongTapCancel;
 
   void _onTapHandler() {
     onTap();
@@ -278,8 +278,8 @@ class DataContent extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Text(
-          " isOn: ${isOn},\n onTap: ${tapVal},\n onTapDown: ${tapDownVal},\n onTapUp: ${tapUpVal},\n onTapCancel: ${tapCancelVal},\n onDoubleTap: ${doubleTapVal},\n onDoubleTapDown: ${doubleTapDownVal},\n onDoubleTapCancel: ${doubleTapCancelVal},\n onLongTap: ${longTapVal},\n onLongTapDown: ${longTapDownVal},\n onLongTapUp: ${longTapUpVal},\n onLongTapCancel: ${longTapCancelVal}",
-          style: TextStyle(fontSize: 20),
+          " isOn: $isOn,\n onTap: $tapVal,\n onTapDown: $tapDownVal,\n onTapUp: $tapUpVal,\n onTapCancel: $tapCancelVal,\n onDoubleTap: $doubleTapVal,\n onDoubleTapDown: $doubleTapDownVal,\n onDoubleTapCancel: $doubleTapCancelVal,\n onLongTap: $longTapVal,\n onLongTapDown: $longTapDownVal,\n onLongTapUp: $longTapUpVal,\n onLongTapCancel: $longTapCancelVal",
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );
