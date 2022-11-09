@@ -11,7 +11,7 @@ class StateManager extends StatefulWidget {
 }
 
 class _StateManagerState extends State<StateManager> {
-  bool isOn = true;
+  bool _isOn = true;
   int tapVal = 0;
   int tapDownVal = 0;
   int tapUpVal = 0;
@@ -27,7 +27,7 @@ class _StateManagerState extends State<StateManager> {
   void _onTap() {
     setState(() {
       tapVal++;
-      isOn = !isOn;
+      _isOn = !_isOn;
     });
   }
 
@@ -91,12 +91,13 @@ class _StateManagerState extends State<StateManager> {
     });
   }
 
+  /// this build is called every time the box is pressed
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: UpdatedBox(
-          isOn: isOn,
+          isOn: _isOn,
           onTap: _onTap,
           onTapDown: _onTapDown,
           onTapUp: _onTapUp,
@@ -122,7 +123,7 @@ class _StateManagerState extends State<StateManager> {
           longTapDownVal: longTapDownVal,
           longTapUpVal: longTapUpVal,
           longTapCancelVal: longTapCancelVal,
-          isOn: isOn),
+          isOn: _isOn),
     );
   }
 }

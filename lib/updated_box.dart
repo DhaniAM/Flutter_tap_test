@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class UpdatedBox extends StatelessWidget {
   const UpdatedBox(
       {super.key,
-      this.isOn = false,
+      required this.isOn,
       required this.onTap,
       required this.onDoubleTap,
       required this.onDoubleTapCancel,
