@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'state_manager.dart';
 
 void main() {
@@ -19,5 +18,20 @@ class MyApp extends StatelessWidget {
   }
 }
 /// State managed by itself (StateManager contain all)
+/// 
+/// you may think,
+/// [StateManager] is Stateful.
+/// The box is Stateful
+/// The data is Stateful
+/// 
+/// Atleast that's what you think, but actually the box (container) is Stateless
+/// The data is also Stateless
+/// 
+/// Stateful controls the Stateless widget.
+/// It tells / builds the Stateless widget when State in itself (Stateful widget)
+/// changed, so Stateful is only used only to contain the State, the widget it builds
+/// is Stateless, not Stateful.
+/// 
+/// Basically Stateful widget is a State Controller
 
 
