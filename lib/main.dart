@@ -18,6 +18,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-/// State managed by parent (StateManager)
+/// State managed by itself (StateManager contain all)
 
 

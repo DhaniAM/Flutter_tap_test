@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'data_content.dart';
-import 'updated_box.dart';
 
-/// Parents
 class StateManager extends StatefulWidget {
   const StateManager({super.key});
 
@@ -96,34 +93,35 @@ class _StateManagerState extends State<StateManager> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: UpdatedBox(
-          isOn: _isOn,
+        child: GestureDetector(
           onTap: _onTap,
-          onTapDown: _onTapDown,
-          onTapUp: _onTapUp,
+          onTapDown: (details) => _onTapDown(),
+          onTapUp: (details) => _onTapUp(),
           onTapCancel: _onTapCancel,
           onDoubleTap: _onDoubleTap,
-          onDoubleTapDown: _onDoubleTapDown,
+          onDoubleTapDown: (details) => _onDoubleTapDown(),
           onDoubleTapCancel: _onDoubleTapCancel,
-          onLongTap: _onLongTap,
-          onLongTapDown: _onLongTapDown,
-          onLongTapUp: _onLongTapUp,
-          onLongTapCancel: _onLongTapCancel,
+          onLongPress: _onLongTap,
+          onLongPressDown: (details) => _onLongTapDown(),
+          onLongPressUp: _onLongTapUp,
+          onLongPressCancel: _onLongTapCancel,
+          child: Container(
+            color: (_isOn ? Colors.red : Colors.grey),
+            width: 200,
+            height: 200,
+          ),
         ),
       ),
-      bottomNavigationBar: DataContent(
-          tapVal: tapVal,
-          tapDownVal: tapDownVal,
-          tapUpVal: tapUpVal,
-          tapCancelVal: tapCancelVal,
-          doubleTapVal: doubleTapVal,
-          doubleTapDownVal: doubleTapDownVal,
-          doubleTapCancelVal: doubleTapCancelVal,
-          longTapVal: longTapVal,
-          longTapDownVal: longTapDownVal,
-          longTapUpVal: longTapUpVal,
-          longTapCancelVal: longTapCancelVal,
-          isOn: _isOn),
+      bottomNavigationBar: Container(
+        color: Colors.yellow,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            " isOn: $_isOn,\n onTap: $tapVal,\n onTapDown: $tapDownVal,\n onTapUp: $tapUpVal,\n onTapCancel: $tapCancelVal,\n onDoubleTap: $doubleTapVal,\n onDoubleTapDown: $doubleTapDownVal,\n onDoubleTapCancel: $doubleTapCancelVal,\n onLongTap: $longTapVal,\n onLongTapDown: $longTapDownVal,\n onLongTapUp: $longTapUpVal,\n onLongTapCancel: $longTapCancelVal",
+            style: const TextStyle(fontSize: 20),
+          ),
+        ),
+      ),
     );
   }
 }
